@@ -1,12 +1,19 @@
-import { Controller, Get } from '@nestjs/common';
+import { Controller, Get, Inject } from '@nestjs/common';
 import type { HealthCheckResponse } from '@food-delivery/types';
-import { AppService } from './app.service';
+import { NeonHttpDatabase } from 'drizzle-orm/neon-http';
+import * as schema from './db/schema';
 
 @Controller()
 export class AppController {
-  constructor(private readonly appService: AppService) {}
+  constructor(@Inject('DB') private db: NeonHttpDatabase<typeof schema>) {}
 
-  @Get('health')
+  @Get('db-test')
+  async dbTest() {
+    const result = await this.db.select().from(schema.users);
+    return { users: result, count: result.length };
+  }
+
+  @Get('health') // /api/health
   health(): HealthCheckResponse {
     return {
       status: 'ok',
