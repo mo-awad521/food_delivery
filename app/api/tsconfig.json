@@ -1,9 +1,13 @@
 {
-  "extends":"../../tsconfig.base.json",
+  "extends": "../../tsconfig.base.json",
   "compilerOptions": {
     "module": "nodenext",
     "moduleResolution": "nodenext",
     "resolvePackageJsonExports": true,
+    
+    // الخصائص التي قمنا بإضافتها لحل المشكلة:
+    "esModuleInterop": true,
+    "skipLibCheck": true,    
     "isolatedModules": true,
     "declaration": true,
     "removeComments": true,

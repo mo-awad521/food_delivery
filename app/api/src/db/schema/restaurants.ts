@@ -10,6 +10,7 @@ export const restaurants = pgTable('restaurants', {
   name: text('name').notNull(),
   description: text('description'),
   imageUrl: text('image_url'),
+  imagePublicId: text('image_public_id'),
   address: text('address').notNull(),
   cuisineType: text('cuisine_type').notNull(),
   isOpen: boolean('is_open').default(false).notNull(),
