@@ -9,6 +9,7 @@ import {
   UploadedFile,
   UseGuards,
   UseInterceptors,
+  Query,
 } from '@nestjs/common';
 import { FileInterceptor } from '@nestjs/platform-express';
 import { RestaurantsService } from './restaurants.service';
@@ -49,8 +50,9 @@ export class RestaurantsController {
   }
 
   @Get()
-  findAll() {
-    return this.restaurantsService.findAll();
+  findAll(@Query('search') search?: string) {
+    // @Query('search') extracts ?search= from the URL — optional
+    return this.restaurantsService.findAll(search);
   }
 
   @Get(':id')
