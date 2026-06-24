@@ -5,9 +5,10 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev:api": "pnpm --filter api run start:dev",
-    "dev:mobile": "pnpm --filter mobile run start --web",
-    "dev": "concurrently --raw \"pnpm dev:api\" \"pnpm dev:mobile\"",
+  "dev:api": "pnpm --filter api run start:dev",
+  "dev:mobile": "pnpm --filter mobile start --dev-client",
+  "build:mobile": "pnpm --filter mobile exec expo run:android",
+  "dev": "concurrently --raw \"pnpm dev:api\" \"pnpm dev:mobile\"",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
