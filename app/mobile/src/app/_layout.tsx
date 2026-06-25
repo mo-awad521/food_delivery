@@ -45,7 +45,7 @@ export default function TabLayout() {
   return (
     <QueryClientProvider client={queryClient}>
       <StripeProvider
-        publishableKey={process.env.EXPO_PUBLIC_STRIPE_PUBLISHABLE_KEY!}
+        publishableKey='pk_test_51O58SoL2W46p9vwJo9IRAn4crFlZZJaf2EFWgjrYq74ZmcPbIQ6owmWBQELu9iJn9YuAwJZdpCtwhqdMNsJYiqZL00FZFr0X3T'
       >
         <AuthProvider>
           <AnimatedSplashOverlay />
